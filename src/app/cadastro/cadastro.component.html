@@ -1,0 +1,159 @@
+<main class="principal">
+  <h2 class="principal__titulo">Dados do cadastro</h2>
+
+  <div class="formulario__container">
+    <!-- Primeiro formulário com Driven Forms -->
+    <form class="principal__formulario" id="formulario" #f="ngForm" (ngSubmit)="cadastrar()">
+      <h3 class="principal__subtitulo">Cadastro usuário com Tamplete-Driven</h3>
+      <!-- Campo nome completo -->
+      <div class="formulario__campo">
+        <label class="campo__etiqueta" for="nome">Nome Completo</label>
+        <input
+          name="nome"
+          id="nome"
+          class="border-1 border-blue border-rounded p-4 w-full"
+          placeholder="Digite seu nome completo"
+          ngModel
+          required
+          minlength="3"
+          #nome="ngModel"
+        >
+        <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
+          <app-mensagem *ngIf="nome.errors?.['required']" mensagem="O campo de nome deve ser preenchido."></app-mensagem>
+          <app-mensagem *ngIf="nome.errors?.['minlength']" mensagem="O nome deve ter no mínimo 3 caracteres."></app-mensagem>
+        </div>
+      </div>
+      <!-- Campo CPF -->
+      <div class="formulario__campo">
+        <label class="campo__etiqueta" for="cpf">CPF</label>
+        <input
+          name="cpf"
+          id="cpf"
+          type="text"
+          placeholder="XXX.XXX.XXX.XX"
+          class="campo__escrita"
+          ngModel
+          required
+          minlength="11"
+          pattern="(\(?\d{3}\)?\-?\d{3}\-?\d{3}\-?\d{2})"
+          #cpf="ngModel"
+        />
+        <div *ngIf="(f.controls['cpf']?.invalid && f.controls['cpf']?.touched) || f.controls['cpf']?.dirty">
+          <span class="erro__texto" *ngIf="f.controls['cpf']?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
+          <span class="erro__texto" *ngIf="f.controls['cpf']?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
+        </div>
+      </div>
+      <!-- Campo CNPJ -->
+      <div class="formulario__campo">
+        <label class="campo__etiqueta" for="cnpj">CNPJ</label>
+        <input
+          name="cnpj"
+          id="cnpj"
+          type="text"
+          placeholder="XX.XXX.XXX/XXXX-XX" class="campo__escrita"
+          ngModel
+          required
+          minlength="14"
+          pattern="(\(?\d{2}\)?\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2})"
+          #cnpj="ngModel"
+        />
+        <div *ngIf="(cnpj?.invalid && cnpj?.touched) || cnpj?.dirty">
+          <app-mensagem *ngIf="cnpj.errors?.['required']" mensagem="O campo de cnpj deve ser preenchido."></app-mensagem>
+          <app-mensagem *ngIf="cnpj.errors?.['pattern']" mensagem="O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX."></app-mensagem>
+        </div>
+      </div>
+      <!-- Campo e-mail -->
+      <div class="formulario__campo">
+        <label class="campo__etiqueta" for="email">E-mail</label>
+        <input
+          name="email"
+          id="email"
+          type="email"
+          class="campo__escrita"
+          placeholder="Digite o seu e-mail"
+          ngModel
+          required
+          pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
+          #email="ngModel"
+        />
+        <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
+          <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['required']">O campo de email deve ser preenchido.</span>
+          <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['pattern']">O email deve seguir este padrão: "exemplo@exemplo.com</span>
+        </div>
+      </div>
+      <!-- Campo botão -->
+      <button type="submit" class="formulario__botao">Enviar formulário</button>
+      </form>
+  </div>
+
+
+    <div class="formulario__container">
+      <!-- Segundo formulário -->
+      <h3 class="principal__subtitulo">Cadastro usuário com Reactive-Forms</h3>
+      <form class="reactive__formulario" [formGroup]="formularioReactive" (ngSubmit)="cadastrar()">
+        <!-- Campo nome completo -->
+        <div class="formulario__campo">
+          <label class="campo__etiqueta" for="nome">Nome</label>
+          <input
+            formControlName="nome"
+            id="nome"
+            type="text"
+            placeholder="Digite seu nome"
+            class="campo__escrita"
+          />
+          <div *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
+            <span class="erro__texto" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
+            <span class="erro__texto" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
+          </div>
+        </div>
+      
+        <!-- Campo CPF -->
+        <div class="formulario__campo">
+          <label class="campo__etiqueta" for="cpf">CPF</label>
+          <input
+            formControlName="cpf"
+            id="cpf"
+            type="text"
+            placeholder="XXX.XXX.XXX-XX"
+            class="campo__escrita"
+          />
+          <div *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
+            <span class="erro__texto" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
+            <span class="erro__texto" *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
+          </div>
+        </div>
+        <!-- Campo CNPJ -->
+        <div class="formulario__campo">
+          <label class="campo__etiqueta" for="cnpj">CNPJ</label>
+          <input
+            formControlName="cnpj"
+            id="cnpj"
+            type="text"
+            placeholder="XX.XXX.XXX/XXXX-XX"
+            class="campo__escrita"
+          />
+          <div *ngIf="formularioReactive.get('cnpj')?.invalid && (formularioReactive.get('cnpj')?.dirty || formularioReactive.get('cnpj')?.touched)">
+            <span class="erro__texto" *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">O campo de cnpj deve ser preenchido.</span>
+            <span class="erro__texto" *ngIf="formularioReactive.get('cnpj')?.errors?.['pattern']">O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.</span>
+          </div>
+        </div>
+        <!-- Campo email -->
+        <div class="formulario__campo">
+          <label class="campo__etiqueta" for="email">E-mail</label>
+          <input
+            formControlName="email"
+            id="email"
+            type="email"
+            placeholder="Digite seu e-mail"
+            class="campo__escrita"
+          />
+          <div *ngIf="formularioReactive.get('email')?.invalid && (formularioReactive.get('email')?.dirty || formularioReactive.get('email')?.touched)">
+            <span class="erro__texto" *ngIf="formularioReactive.get('email')?.errors?.['required']">O campo de e-mail deve ser preenchido.</span>
+            <span class="erro__texto" *ngIf="formularioReactive.get('email')?.errors?.['pattern']">O e-mail deve seguir o padrão: exemplo@exemplo.com</span>
+          </div>
+        </div>
+        <!-- Campo botão -->
+        <button type="submit" class="formulario__botao">Enviar formulário</button>
+      </form>
+    </div>
+</main>
