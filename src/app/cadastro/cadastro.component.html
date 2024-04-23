@@ -5,19 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/tailwind.css" rel="stylesheet">
   <title>Formulário Reativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+               
+                },
+                fontFamily: {
+                    inter: ['Inter', 'sans-serif']    
+                },
+                keyframes: {
+                    sino_kf: {
+                        '0%, 100%': {
+                            transform: 'rotate(-10deg)'
+                        },
+                        '50%': {
+                            transform: 'rotate(10deg)'
+                        }
+                    }
+                },
+                animation: {
+                    sino: 'sino_kf 0.31s ease-in-out infinite'
+                }
+            }
+        }
+    }
+</script>
 </head>
 <body>
 
-  <main class="principal">
-    <h2 class="principal__titulo">Dados do cadastro</h2>
+  <!-- Width e Margin -->
+  <main class="w-1/2 mx-auto my-20 mb-24">
+
+    <h2 class="font-bold text-2xl text-customColor1">Dados do cadastro</h2>
   
-    <div class="formulario__container">
+    <div>
       <!-- Primeiro formulário com Driven Forms -->
-      <form class="principal__formulario" id="formulario" #f="ngForm" (ngSubmit)="cadastrar()">
-        <h3 class="principal__subtitulo">Cadastro usuário com Tamplete-Driven</h3>
+      <form class="" id="formulario" #f="ngForm" (ngSubmit)="cadastrar()">
+        <h3 class="font-bold text-base leading-6 text-customAzul my-12">Cadastro usuário com Tamplete-Driven</h3>
+
         <!-- Campo nome completo -->
-        <div class="formulario__campo">
-          <label class="campo__etiqueta" for="nome">Nome Completo</label>
+        <div class="'my-1' mx-3 'my-1'">
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="nome">Nome Completo</label>
           <input
             name="nome"
             id="nome"
@@ -34,8 +65,8 @@
           </div>
         </div>
         <!-- Campo CPF -->
-        <div class="formulario__campo">
-          <label class="campo__etiqueta" for="cpf">CPF</label>
+        <div class="'my-1' mx-3 'my-1'">
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">CPF</label>
           <input
             name="cpf"
             id="cpf"
@@ -54,8 +85,8 @@
           </div>
         </div>
         <!-- Campo CNPJ -->
-        <div class="formulario__campo">
-          <label class="campo__etiqueta" for="cnpj">CNPJ</label>
+        <div class="'my-1' mx-3 'my-1'">
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
           <input
             name="cnpj"
             id="cnpj"
@@ -73,8 +104,8 @@
           </div>
         </div>
         <!-- Campo e-mail -->
-        <div class="formulario__campo">
-          <label class="campo__etiqueta" for="email">E-mail</label>
+        <div class="'my-1' mx-3 'my-1'">
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
           <input
             name="email"
             id="email"
@@ -92,18 +123,20 @@
           </div>
         </div>
         <!-- Campo botão -->
-        <button type="submit" class="formulario__botao">Enviar formulário</button>
+        <div class="flex justify-center items-center">
+          <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
+        </div>
         </form>
     </div>
   
   
       <div class="formulario__container">
         <!-- Segundo formulário -->
-        <h3 class="principal__subtitulo">Cadastro usuário com Reactive-Forms</h3>
+        <h3 class="font-bold text-base leading-6 text-customAzul my-12">Cadastro usuário com Reactive-Forms</h3>
         <form class="reactive__formulario" [formGroup]="formularioReactive" (ngSubmit)="cadastrar()">
           <!-- Campo nome completo -->
-          <div class="formulario__campo">
-            <label class="campo__etiqueta" for="nome">Nome</label>
+          <div class="'my-1' mx-3 'my-1'">
+            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="nome">Nome</label>
             <input
               formControlName="nome"
               id="nome"
@@ -118,8 +151,8 @@
           </div>
         
           <!-- Campo CPF -->
-          <div class="formulario__campo">
-            <label class="campo__etiqueta" for="cpf">CPF</label>
+          <div class="'my-1' mx-3 'my-1'">
+            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">CPF</label>
             <input
               formControlName="cpf"
               id="cpf"
@@ -133,8 +166,8 @@
             </div>
           </div>
           <!-- Campo CNPJ -->
-          <div class="formulario__campo">
-            <label class="campo__etiqueta" for="cnpj">CNPJ</label>
+          <div class="'my-1' mx-3 'my-1'">
+            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
             <input
               formControlName="cnpj"
               id="cnpj"
@@ -148,8 +181,8 @@
             </div>
           </div>
           <!-- Campo email -->
-          <div class="formulario__campo">
-            <label class="campo__etiqueta" for="email">E-mail</label>
+          <div class="'my-1' mx-3 'my-1'">
+            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
             <input
               formControlName="email"
               id="email"
@@ -163,7 +196,9 @@
             </div>
           </div>
           <!-- Campo botão -->
-          <button type="submit" class="formulario__botao">Enviar formulário</button>
+          <div class="flex justify-center items-center">
+            <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
+          </div>
         </form>
       </div>
   </main>
