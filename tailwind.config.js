@@ -7,6 +7,7 @@ module.exports = {
         customColor2: '#A9B388',
         customColor3: '#B99470',
         customAzul: '#002F52',
+        customErro: '#dc3545',
       },
     },
   },

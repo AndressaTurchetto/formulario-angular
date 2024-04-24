@@ -3,45 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/tailwind.css" rel="stylesheet">
-  <title>Formulário Reativo</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-               
-                },
-                fontFamily: {
-                    inter: ['Inter', 'sans-serif']    
-                },
-                keyframes: {
-                    sino_kf: {
-                        '0%, 100%': {
-                            transform: 'rotate(-10deg)'
-                        },
-                        '50%': {
-                            transform: 'rotate(10deg)'
-                        }
-                    }
-                },
-                animation: {
-                    sino: 'sino_kf 0.31s ease-in-out infinite'
-                }
-            }
-        }
-    }
-</script>
+  <link href="/tailwind.css" rel="stylesheet">
+  <!-- Título -->
+  <title>Formulário Reativo</title>
+
 </head>
 <body>
 
   <!-- Width e Margin -->
   <main class="w-1/2 mx-auto my-20 mb-24">
-
     <h2 class="font-bold text-2xl text-customColor1">Dados do cadastro</h2>
-  
     <div>
+
       <!-- Primeiro formulário com Driven Forms -->
       <form class="" id="formulario" #f="ngForm" (ngSubmit)="cadastrar()">
         <h3 class="font-bold text-base leading-6 text-customAzul my-12">Cadastro usuário com Tamplete-Driven</h3>
@@ -52,7 +27,7 @@
           <input
             name="nome"
             id="nome"
-            class="campo__escrita"
+            class="border border-customAzul rounded-xl px-4 py-2 w-full"
             placeholder="Digite seu nome completo"
             ngModel
             required
@@ -72,7 +47,7 @@
             id="cpf"
             type="text"
             placeholder="XXX.XXX.XXX.XX"
-            class="campo__escrita"
+            class="border border-customAzul rounded-xl px-4 py-2 w-full"
             ngModel
             required
             minlength="11"
@@ -91,7 +66,7 @@
             name="cnpj"
             id="cnpj"
             type="text"
-            placeholder="XX.XXX.XXX/XXXX-XX" class="campo__escrita"
+            placeholder="XX.XXX.XXX/XXXX-XX" class="border border-customAzul rounded-xl px-4 py-2 w-full"
             ngModel
             required
             minlength="14"
@@ -110,7 +85,7 @@
             name="email"
             id="email"
             type="email"
-            class="campo__escrita"
+            class="border border-customAzul rounded-xl px-4 py-2 w-full"
             placeholder="Digite o seu e-mail"
             ngModel
             required
@@ -142,7 +117,7 @@
               id="nome"
               type="text"
               placeholder="Digite seu nome"
-              class="campo__escrita"
+              class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
             <div *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
               <span class="erro__texto" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
@@ -158,7 +133,7 @@
               id="cpf"
               type="text"
               placeholder="XXX.XXX.XXX-XX"
-              class="campo__escrita"
+              class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
             <div *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
               <span class="erro__texto" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
@@ -173,7 +148,7 @@
               id="cnpj"
               type="text"
               placeholder="XX.XXX.XXX/XXXX-XX"
-              class="campo__escrita"
+              class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
             <div *ngIf="formularioReactive.get('cnpj')?.invalid && (formularioReactive.get('cnpj')?.dirty || formularioReactive.get('cnpj')?.touched)">
               <span class="erro__texto" *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">O campo de cnpj deve ser preenchido.</span>
@@ -188,7 +163,7 @@
               id="email"
               type="email"
               placeholder="Digite seu e-mail"
-              class="campo__escrita"
+              class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
             <div *ngIf="formularioReactive.get('email')?.invalid && (formularioReactive.get('email')?.dirty || formularioReactive.get('email')?.touched)">
               <span class="erro__texto" *ngIf="formularioReactive.get('email')?.errors?.['required']">O campo de e-mail deve ser preenchido.</span>
