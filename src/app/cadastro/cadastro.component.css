@@ -33,15 +33,3 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-
-.erro__texto {
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--vermelho);
-}
-
-/* Estilos para campos inválidos */
-.ng-touched.ng-invalid:not(form) {
-  border-color: #B99470;
-  color: #B99470;
-} 

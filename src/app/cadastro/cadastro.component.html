@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="/tailwind.css" rel="stylesheet">
   <!-- Título -->
   <title>Formulário Reativo</title>
 
 </head>
 <body>
-
-  <!-- Width e Margin -->
   <main class="w-1/2 mx-auto my-20 mb-24">
     <h2 class="font-bold text-2xl text-customColor1">Dados do cadastro</h2>
     <div>
@@ -27,18 +24,20 @@
           <input
             name="nome"
             id="nome"
-            class="border border-customAzul rounded-xl px-4 py-2 w-full"
+            type="text"
             placeholder="Digite seu nome completo"
+            class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             ngModel
             required
             minlength="3"
             #nome="ngModel"
           >
           <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
-            <app-mensagem *ngIf="nome.errors?.['required']" mensagem="O campo de nome deve ser preenchido."></app-mensagem>
-            <app-mensagem *ngIf="nome.errors?.['minlength']" mensagem="O nome deve ter no mínimo 3 caracteres."></app-mensagem>
+            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="nome.errors?.['required']" mensagem="O campo de nome deve ser preenchido."></app-mensagem>
+            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="nome.errors?.['minlength']" mensagem="O nome deve ter no mínimo 3 caracteres."></app-mensagem>
           </div>
         </div>
+
         <!-- Campo CPF -->
         <div class="'my-1' mx-3 'my-1'">
           <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">CPF</label>
@@ -47,7 +46,7 @@
             id="cpf"
             type="text"
             placeholder="XXX.XXX.XXX.XX"
-            class="border border-customAzul rounded-xl px-4 py-2 w-full"
+            class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             ngModel
             required
             minlength="11"
@@ -55,10 +54,11 @@
             #cpf="ngModel"
           />
           <div *ngIf="(f.controls['cpf']?.invalid && f.controls['cpf']?.touched) || f.controls['cpf']?.dirty">
-            <span class="erro__texto" *ngIf="f.controls['cpf']?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
-            <span class="erro__texto" *ngIf="f.controls['cpf']?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
+            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['cpf']?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
+            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['cpf']?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
           </div>
         </div>
+
         <!-- Campo CNPJ -->
         <div class="'my-1' mx-3 'my-1'">
           <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
@@ -66,7 +66,8 @@
             name="cnpj"
             id="cnpj"
             type="text"
-            placeholder="XX.XXX.XXX/XXXX-XX" class="border border-customAzul rounded-xl px-4 py-2 w-full"
+            placeholder="XX.XXX.XXX/XXXX-XX" 
+            class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             ngModel
             required
             minlength="14"
@@ -74,10 +75,11 @@
             #cnpj="ngModel"
           />
           <div *ngIf="(cnpj?.invalid && cnpj?.touched) || cnpj?.dirty">
-            <app-mensagem *ngIf="cnpj.errors?.['required']" mensagem="O campo de cnpj deve ser preenchido."></app-mensagem>
-            <app-mensagem *ngIf="cnpj.errors?.['pattern']" mensagem="O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX."></app-mensagem>
+            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="cnpj.errors?.['required']" mensagem="O campo de cnpj deve ser preenchido."></app-mensagem>
+            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="cnpj.errors?.['pattern']" mensagem="O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX."></app-mensagem>
           </div>
         </div>
+
         <!-- Campo e-mail -->
         <div class="'my-1' mx-3 'my-1'">
           <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
@@ -85,7 +87,7 @@
             name="email"
             id="email"
             type="email"
-            class="border border-customAzul rounded-xl px-4 py-2 w-full"
+            class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             placeholder="Digite o seu e-mail"
             ngModel
             required
@@ -93,22 +95,23 @@
             #email="ngModel"
           />
           <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
-            <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['required']">O campo de email deve ser preenchido.</span>
-            <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['pattern']">O email deve seguir este padrão: "exemplo@exemplo.com</span>
+            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['email']?.errors?.['required']">O campo de email deve ser preenchido.</span>
+            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['email']?.errors?.['pattern']">O email deve seguir este padrão: "exemplo@exemplo.com</span>
           </div>
         </div>
+
         <!-- Campo botão -->
         <div class="flex justify-center items-center">
           <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
         </div>
-        </form>
+      </form>
     </div>
   
-  
+      <!-- Segundo formulário -->
       <div class="formulario__container">
-        <!-- Segundo formulário -->
         <h3 class="font-bold text-base leading-6 text-customAzul my-12">Cadastro usuário com Reactive-Forms</h3>
         <form class="reactive__formulario" [formGroup]="formularioReactive" (ngSubmit)="cadastrar()">
+
           <!-- Campo nome completo -->
           <div class="'my-1' mx-3 'my-1'">
             <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="nome">Nome</label>
@@ -117,11 +120,11 @@
               id="nome"
               type="text"
               placeholder="Digite seu nome"
-              class="border border-customAzul rounded-xl px-4 py-2 w-full"
+              class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             />
             <div *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
-              <span class="erro__texto" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
-              <span class="erro__texto" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
             </div>
           </div>
         
@@ -133,13 +136,14 @@
               id="cpf"
               type="text"
               placeholder="XXX.XXX.XXX-XX"
-              class="border border-customAzul rounded-xl px-4 py-2 w-full"
+              class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             />
             <div *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
-              <span class="erro__texto" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
-              <span class="erro__texto" *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
             </div>
           </div>
+
           <!-- Campo CNPJ -->
           <div class="'my-1' mx-3 'my-1'">
             <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
@@ -151,10 +155,11 @@
               class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
             <div *ngIf="formularioReactive.get('cnpj')?.invalid && (formularioReactive.get('cnpj')?.dirty || formularioReactive.get('cnpj')?.touched)">
-              <span class="erro__texto" *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">O campo de cnpj deve ser preenchido.</span>
-              <span class="erro__texto" *ngIf="formularioReactive.get('cnpj')?.errors?.['pattern']">O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">O campo de cnpj deve ser preenchido.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cnpj')?.errors?.['pattern']">O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.</span>
             </div>
           </div>
+
           <!-- Campo email -->
           <div class="'my-1' mx-3 'my-1'">
             <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
@@ -163,13 +168,14 @@
               id="email"
               type="email"
               placeholder="Digite seu e-mail"
-              class="border border-customAzul rounded-xl px-4 py-2 w-full"
+              class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             />
             <div *ngIf="formularioReactive.get('email')?.invalid && (formularioReactive.get('email')?.dirty || formularioReactive.get('email')?.touched)">
-              <span class="erro__texto" *ngIf="formularioReactive.get('email')?.errors?.['required']">O campo de e-mail deve ser preenchido.</span>
-              <span class="erro__texto" *ngIf="formularioReactive.get('email')?.errors?.['pattern']">O e-mail deve seguir o padrão: exemplo@exemplo.com</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('email')?.errors?.['required']">O campo de e-mail deve ser preenchido.</span>
+              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('email')?.errors?.['pattern']">O e-mail deve seguir o padrão: exemplo@exemplo.com</span>
             </div>
           </div>
+
           <!-- Campo botão -->
           <div class="flex justify-center items-center">
             <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
