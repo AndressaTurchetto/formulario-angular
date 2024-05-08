@@ -10,11 +10,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CadastroComponent implements OnInit {
   formularioReactive!: FormGroup;
 
-  constructor(private router: Router, private FormBuilder:FormBuilder) {
+  constructor(
+    private router: Router, 
+    private FormBuilder:FormBuilder
+  ) {
     this.formularioReactive = this.FormBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
+
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.pattern(/\d{3}\.\d{3}\.\d{3}\-\d{2}/)]],
+      
       cnpj: ['', [Validators.required, Validators.minLength(14), Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]],
+      
       email: ['', [Validators.required, Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/)]]
     });
    }

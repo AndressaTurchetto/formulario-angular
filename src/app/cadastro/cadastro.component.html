@@ -95,6 +95,8 @@
         </div>
       </form>
     </div>
+
+
   
       <!-- Segundo formulário -->
       <div class="formulario__container">
@@ -103,16 +105,20 @@
 
           <!-- Campo nome completo -->
           <div class="'my-1' mx-3 'my-1'">
-            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="nome">Nome</label>
+            <label 
+              class="block font-bold text-base leading-6 text-customAzul ml-4" 
+              for="nome">Nome</label>
             <input
-              formControlName="nome"
-              id="nome"
               type="text"
-              placeholder="Digite seu nome"
+              id="nome"
+              formControlName="nome"
               class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
+              placeholder="Digite seu nome"
             />
+
             <div *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
+              
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
             </div>
           </div>
@@ -121,14 +127,16 @@
           <div class="'my-1' mx-3 'my-1'">
             <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">CPF</label>
             <input
-              formControlName="cpf"
-              id="cpf"
               type="text"
-              placeholder="XXX.XXX.XXX-XX"
+              id="cpf"
               class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
+              placeholder=" "
+              formControlName="cpf"
+              mask="000.000.000-00"
             />
             <div *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
+
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
             </div>
           </div>
