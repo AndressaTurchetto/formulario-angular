@@ -31,10 +31,18 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.formularioReactive = this.FormBuilder.group({
-      cpf: ['', [Validators.required, Validators.minLength(11)]],
-      cnpj: ['', [Validators.required, Validators.minLength(14)]],
-      nome: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', [
+        Validators.required, Validators.minLength(11)
+      ]],
+      cnpj: ['', [
+        Validators.required, Validators.minLength(14)
+      ]],
+      nome: ['', [
+        Validators.required
+      ]],
+      email: ['', [
+        Validators.required, Validators.email
+      ]],
     });
   }
 
