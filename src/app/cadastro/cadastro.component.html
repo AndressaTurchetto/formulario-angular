@@ -20,7 +20,8 @@
             minlength="3"
             #nome="ngModel"
           >
-          <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
+          <div 
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
             <app-mensagem 
               class="text-customErro text-sm leading-6" 
               *ngIf="nome.errors?.['required']" 
@@ -34,7 +35,8 @@
           </div>
         </div>
         <div class="'my-1' mx-3 'my-1'">
-          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">CPF</label>
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cpf">
+            CPF</label>
           <input
             name="cpf"
             id="cpf"
@@ -47,13 +49,15 @@
             pattern="(\(?\d{3}\)?\-?\d{3}\-?\d{3}\-?\d{2})"
             #cpf="ngModel"
           />
-          <div *ngIf="(f.controls['cpf']?.invalid && f.controls['cpf']?.touched) || f.controls['cpf']?.dirty">
+          <div 
+            *ngIf="(f.controls['cpf']?.invalid && f.controls['cpf']?.touched) || f.controls['cpf']?.dirty">
             <span class="text-customErro text-sm leading-6" *ngIf="f.controls['cpf']?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
             <span class="text-customErro text-sm leading-6" *ngIf="f.controls['cpf']?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
           </div>
         </div>
         <div class="'my-1' mx-3 'my-1'">
-          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">
+            CNPJ</label>
           <input
             name="cnpj"
             id="cnpj"
@@ -66,9 +70,18 @@
             pattern="(\(?\d{2}\)?\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2})"
             #cnpj="ngModel"
           />
-          <div *ngIf="(cnpj?.invalid && cnpj?.touched) || cnpj?.dirty">
-            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="cnpj.errors?.['required']" mensagem="O campo de cnpj deve ser preenchido."></app-mensagem>
-            <app-mensagem class="text-customErro text-sm leading-6" *ngIf="cnpj.errors?.['pattern']" mensagem="O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX."></app-mensagem>
+          <div 
+            *ngIf="(cnpj?.invalid && cnpj?.touched) || cnpj?.dirty">
+            <app-mensagem 
+              class="text-customErro text-sm leading-6" 
+              *ngIf="cnpj.errors?.['required']" 
+              mensagem="O campo de cnpj deve ser preenchido.">
+            </app-mensagem>
+            <app-mensagem 
+              class="text-customErro text-sm leading-6" 
+              *ngIf="cnpj.errors?.['pattern']" 
+              mensagem="O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.">
+            </app-mensagem>
           </div>
         </div>
         <div class="'my-1' mx-3 'my-1'">
