@@ -85,7 +85,8 @@
           </div>
         </div>
         <div class="'my-1' mx-3 'my-1'">
-          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
+          <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">
+            E-mail</label>
           <input
             name="email"
             id="email"
@@ -97,9 +98,18 @@
             pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
             #email="ngModel"
           />
-          <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
-            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['email']?.errors?.['required']">O campo de email deve ser preenchido.</span>
-            <span class="text-customErro text-sm leading-6" *ngIf="f.controls['email']?.errors?.['pattern']">O email deve seguir este padrão: "exemplo@exemplo.com</span>
+          <div 
+            *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
+            <span 
+              class="text-customErro text-sm leading-6" 
+              *ngIf="f.controls['email']?.errors?.['required']">
+              O campo de email deve ser preenchido.
+            </span>
+            <span 
+              class="text-customErro text-sm leading-6" 
+              *ngIf="f.controls['email']?.errors?.['pattern']">
+              O email deve seguir este padrão: "exemplo@exemplo.com
+            </span>
           </div>
         </div>
         <div class="flex justify-center items-center">
