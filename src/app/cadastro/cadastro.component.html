@@ -113,17 +113,29 @@
           </div>
         </div>
         <div class="flex justify-center items-center">
-          <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
+          <button 
+            type="submit" 
+            class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">
+            Enviar formulário
+          </button>
         </div>
       </form>
     </div>
       <div class="formulario__container">
-        <h3 class="font-bold text-base leading-6 text-customAzul my-12">Cadastro usuário com Reactive-Forms</h3>
-        <form class="reactive__formulario" [formGroup]="formularioReactive" (ngSubmit)="cadastrar()">
+        <h3 
+          class="font-bold text-base leading-6 text-customAzul my-12">
+          Cadastro usuário com Reactive-Forms
+        </h3>
+        <form 
+          class="reactive__formulario" 
+          [formGroup]="formularioReactive" 
+          (ngSubmit)="cadastrar()"  >
           <div class="'my-1' mx-3 'my-1'">
             <label 
               class="block font-bold text-base leading-6 text-customAzul ml-4" 
-              for="nome">Nome</label>
+              for="nome">
+              Nome
+            </label>
             <input
               type="text"
               id="nome"
@@ -131,8 +143,13 @@
               class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
               placeholder="Digite seu nome"
             />
-            <div *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['required']">O campo de nome deve ser preenchido.</span>
+            <div 
+              *ngIf="formularioReactive.get('nome')?.invalid && (formularioReactive.get('nome')?.dirty || formularioReactive.get('nome')?.touched)">
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('nome')?.errors?.['required']">
+                O campo de nome deve ser preenchido.
+              </span>
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
             </div>
           </div>
