@@ -150,7 +150,11 @@
                 *ngIf="formularioReactive.get('nome')?.errors?.['required']">
                 O campo de nome deve ser preenchido.
               </span>
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('nome')?.errors?.['minlength']">
+                O nome deve ter no mínimo 3 caracteres.
+              </span>
             </div>
           </div>
           <div class="'my-1' mx-3 'my-1'">
@@ -163,9 +167,18 @@
               formControlName="cpf"
               mask="000.000.000-00"
             />
-            <div *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['required']">O campo de cpf deve ser preenchido.</span>
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".</span>
+            <div 
+              *ngIf="formularioReactive.get('cpf')?.invalid && (formularioReactive.get('cpf')?.dirty || formularioReactive.get('cpf')?.touched)">
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('cpf')?.errors?.['required']">
+                O campo de cpf deve ser preenchido.
+              </span>
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('cpf')?.errors?.['pattern']">
+                O cpf deve seguir o padrão: "XXX.XXX.XXX-XX".
+              </span>
             </div>
           </div>
           <div class="'my-1' mx-3 'my-1'">
