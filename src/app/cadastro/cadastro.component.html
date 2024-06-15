@@ -182,7 +182,10 @@
             </div>
           </div>
           <div class="'my-1' mx-3 'my-1'">
-            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">CNPJ</label>
+            <label 
+              class="block font-bold text-base leading-6 text-customAzul ml-4" for="cnpj">
+              CNPJ
+            </label>
             <input
               formControlName="cnpj"
               id="cnpj"
@@ -190,13 +193,25 @@
               placeholder="XX.XXX.XXX/XXXX-XX"
               class="border border-customAzul rounded-xl px-4 py-2 w-full"
             />
-            <div *ngIf="formularioReactive.get('cnpj')?.invalid && (formularioReactive.get('cnpj')?.dirty || formularioReactive.get('cnpj')?.touched)">
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">O campo de cnpj deve ser preenchido.</span>
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('cnpj')?.errors?.['pattern']">O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.</span>
+            <div 
+              *ngIf="formularioReactive.get('cnpj')?.invalid && (formularioReactive.get('cnpj')?.dirty || formularioReactive.get('cnpj')?.touched)">
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('cnpj')?.errors?.['required']">
+                O campo de cnpj deve ser preenchido.
+              </span>
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('cnpj')?.errors?.['pattern']">
+                O cnpj deve seguir este padrão: XX.XXX.XXX/XXXX-XX.
+              </span>
             </div>
           </div>
           <div class="'my-1' mx-3 'my-1'">
-            <label class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">E-mail</label>
+            <label 
+              class="block font-bold text-base leading-6 text-customAzul ml-4" for="email">
+              E-mail
+            </label>
             <input
               formControlName="email"
               id="email"
@@ -204,8 +219,13 @@
               placeholder="Digite seu e-mail"
               class="border border-customAzul focus:border-2 px-4 py-2 block w-full rounded-lg focus:outline-none sm:text-sm focus:border-customAzul h-12"
             />
-            <div *ngIf="formularioReactive.get('email')?.invalid && (formularioReactive.get('email')?.dirty || formularioReactive.get('email')?.touched)">
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('email')?.errors?.['required']">O campo de e-mail deve ser preenchido.</span>
+            <div 
+              *ngIf="formularioReactive.get('email')?.invalid && (formularioReactive.get('email')?.dirty || formularioReactive.get('email')?.touched)">
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('email')?.errors?.['required']">
+                O campo de e-mail deve ser preenchido.
+              </span>
               <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('email')?.errors?.['pattern']">O e-mail deve seguir o padrão: exemplo@exemplo.com</span>
             </div>
           </div>
