@@ -226,11 +226,20 @@
                 *ngIf="formularioReactive.get('email')?.errors?.['required']">
                 O campo de e-mail deve ser preenchido.
               </span>
-              <span class="text-customErro text-sm leading-6" *ngIf="formularioReactive.get('email')?.errors?.['pattern']">O e-mail deve seguir o padrão: exemplo@exemplo.com</span>
+              <span 
+                class="text-customErro text-sm leading-6" 
+                *ngIf="formularioReactive.get('email')?.errors?.['pattern']">
+                O e-mail deve seguir o padrão: exemplo@exemplo.com
+              </span>
             </div>
           </div>
-          <div class="flex justify-center items-center">
-            <button type="submit" class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">Enviar formulário</button>
+          <div 
+            class="flex justify-center items-center">
+            <button 
+              type="submit" 
+              class="bg-customColor1 text-white font-bold leading-9 cursor-pointer float-right rounded-full transition duration-300 hover:bg-customColor2 px-8 py-4 m-8">
+              Enviar formulário
+            </button>
           </div>
         </form>
       </div>
