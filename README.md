@@ -1,27 +1,33 @@
-# FormsReativos
+# Projeto de Formulários com Angular e Tailwind CSS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
-## Development server
+Este projeto é uma aplicação web desenvolvida em Angular que apresenta dois tipos de formulários: um utilizando **Template-Driven Forms** e outro com **React Forms**. A aplicação é estilizada com **Tailwind CSS**, proporcionando uma aparência moderna e responsiva.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Funcionalidades
 
-## Code scaffolding
+- **Template-Driven Form**: Um formulário que utiliza a abordagem Template-Driven do Angular, facilitando a captura e validação de dados diretamente no template.
+- **React Form**: Um formulário dinâmico que utiliza a biblioteca React Forms para gerenciar a entrada de dados e a validação.
+- **Validação**: Ambos os formulários possuem validações para garantir a integridade dos dados.
+- **Estilização Responsiva**: Utiliza Tailwind CSS para um design responsivo e adaptável a diferentes tamanhos de tela.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tecnologias Utilizadas
 
-## Build
+- **Angular**: Framework de front-end para construção da aplicação.
+- **Tailwind CSS**: Biblioteca de estilos CSS para design moderno e responsivo.
+- **React Forms**: Biblioteca para gerenciar formulários de forma eficiente.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+### Clone o Repositório
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+git clone https://github.com/AndressaTurchetto/formulario-angular.git
+cd nome-do-repositorio
+npm install
+ng serve
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Demonstração da Aplicação](src/assets/tela1.png)
+![Demonstração da Aplicação](src/assets/tela2.png)
+![Demonstração da Aplicação](src/assets/tela3.png)
+![Demonstração da Aplicação](src/assets/tela4.png)
+![Demonstração da Aplicação](src/assets/tela5.png)
